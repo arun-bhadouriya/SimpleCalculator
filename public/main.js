@@ -16,7 +16,7 @@ let btnMinus= document.getElementById('btnminus')
 let btnPlus=document.getElementById('btnplus')
 let btnMultiply=document.getElementById('btnmultiply')
 let btnDivide=document.getElementById('btndivide')
-let btnModulo=document.getElementById('btnModulo')
+let btnModulo=document.getElementById('btnmodulo')
 
 btn1.onclick =function(){
     // console.log('clicked')
@@ -71,6 +71,7 @@ btn9.onclick =function(){
 btnBack.onclick=()=>{
     let length=questionInp.value.length
     questionInp.value=questionInp.value.slice(0,length-1)
+    answerInp.value=""
 }
 
 btnClear.onclick=()=>{
@@ -90,4 +91,36 @@ window.addEventListener("keydown", function(e) {
         if(ans==undefined) answerInp.value=""
         else answerInp.value=ans
     }
+    if(e.keyCode == 8){
+        let length=questionInp.value.length
+        if(document.activeElement.tagName!="INPUT"){
+            questionInp.value=questionInp.value.slice(0,length-1)
+        }
+        answerInp.value=""
+    }
 })
+
+btnModulo.onclick=()=>{
+    if(questionInp.value=="") questionInp.value=""
+    else questionInp.value+="%"
+}
+
+btnMinus.onclick=()=>{
+    if(questionInp.value=="") questionInp.value=""
+    else questionInp.value+="-"
+}
+
+btnPlus.onclick=()=>{
+    if(questionInp.value=="") questionInp.value=""
+    else questionInp.value+="+"
+}
+
+btnDivide.onclick= ()=>{
+    if(questionInp.value="")questionInp.value=""
+    else questionInp.value="/"
+}
+
+btnMultiply.onclick=function(){
+    if(questionInp.value="") questionInp.value=""
+    else questionInp.value="*"
+}
