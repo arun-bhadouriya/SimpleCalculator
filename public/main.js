@@ -98,26 +98,32 @@ window.addEventListener("keydown", function(e) {
         }
         answerInp.value=""
     }
+    if(e.keyCode>=65 && e.keyCode<=90){
+        questionInp.value=null
+    }
+    if(e.keyCode>=97 && e.keyCode<=105){
+        questionInp+=e.value
+    }
 })
 
 btnModulo.onclick=()=>{
-    if(questionInp.value=="") questionInp.value=""
-    else questionInp.value+="%"
+    // if(questionInp.value=="") questionInp.value=""
+     questionInp.value+="%"
 }
 
 btnMinus.onclick=()=>{
-    if(questionInp.value=="") questionInp.value=""
-    else questionInp.value+="-"
+    // if(questionInp.value=="") questionInp.value=""
+     questionInp.value+="-"
 }
 
 btnPlus.onclick=()=>{
-    if(questionInp.value=="") questionInp.value=""
-    else questionInp.value+="+"
+    // if(questionInp.value=="") questionInp.value=""
+     questionInp.value+="+"
 }
 
 btnDivide.onclick= ()=>{
-    if(questionInp.value="")questionInp.value=""
-    else questionInp.value="/"
+    // if(questionInp.value="")questionInp.value=""
+     questionInp.value="/"
 }
 
 btnMultiply.onclick=function(){
