@@ -1,11 +1,11 @@
 .row{
     display: flex;
-    width:13.38%;
+    width:20%;
     justify-content:space-between;
   }
   
   button{
-    min-width:4rem;
+    min-width:4.2rem;
     min-height: 3rem;
   }
 
@@ -22,9 +22,11 @@
       display: flex;
   }
   input{
-      width:11.5rem;
+      width:12.2rem;
       height: 25px;
       margin: 0;      
   }
 
-  
+  .row #btn-0{
+      width: 100%;
+  }

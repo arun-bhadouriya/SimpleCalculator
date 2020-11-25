@@ -1,3 +1,5 @@
+// const { clear } = require("console")
+
 let questionInp= document.getElementById('questionInp')
 let answerInp= document.getElementById('ansInp')
 let btn1= document.getElementById('btn-1')
@@ -18,74 +20,94 @@ let btnMultiply=document.getElementById('btnmultiply')
 let btnDivide=document.getElementById('btndivide')
 let btnModulo=document.getElementById('btnmodulo')
 
-btn1.onclick =function(){
-    // console.log('clicked')
-    if(questionInp.value=="") questionInp.value="1"
-    else questionInp.value+="1"
-}
+// btn1.onclick =function(){
+//     // console.log('clicked')
+//     if(questionInp.value=="") questionInp.value="1"
+//     else questionInp.value+="1"
+// }
 
-btn2.onclick =function(){
-    // console.log('clicked')
-    if(questionInp.value=="") questionInp.value="2"
-    else questionInp.value+="2"
-}
+// btn2.onclick =function(){
+//     // console.log('clicked')
+//     if(questionInp.value=="") questionInp.value="2"
+//     else questionInp.value+="2"
+// }
 
-btn3.onclick =function(){
-    // console.log('clicked')
-    if(questionInp.value=="") questionInp.value="3"
-    else questionInp.value+="3"
-}
+// btn3.onclick =function(){
+//     // console.log('clicked')
+//     if(questionInp.value=="") questionInp.value="3"
+//     else questionInp.value+="3"
+// }
 
-btn4.onclick =function(){
-    // console.log('clicked')
-    if(questionInp.value=="") questionInp.value="4"
-    else questionInp.value+="4"
-}
+// btn4.onclick =function(){
+//     // console.log('clicked')
+//     if(questionInp.value=="") questionInp.value="4"
+//     else questionInp.value+="4"
+// }
 
-btn5.onclick =function(){
-    // console.log('clicked')
-    if(questionInp.value=="") questionInp.value="5"
-    else questionInp.value+="5"
-}
-btn6.onclick =function(){
-    // console.log('clicked')
-    if(questionInp.value=="") questionInp.value="6"
-    else questionInp.value+="6"
-}
-btn7.onclick =function(){
-    // console.log('clicked')
-    if(questionInp.value=="") questionInp.value="7"
-    else questionInp.value+="7"
-}
-btn8.onclick =function(){
-    // console.log('clicked')
-    if(questionInp.value=="") questionInp.value="8"
-    else questionInp.value+="8"
-}
-btn9.onclick =function(){
-    // console.log('clicked')
-    if(questionInp.value=="") questionInp.value="9"
-    else questionInp.value+="9"
-}
+// btn5.onclick =function(){
+//     // console.log('clicked')
+//     if(questionInp.value=="") questionInp.value="5"
+//     else questionInp.value+="5"
+// }
+// btn6.onclick =function(){
+//     // console.log('clicked')
+//     if(questionInp.value=="") questionInp.value="6"
+//     else questionInp.value+="6"
+// }
+// btn7.onclick =function(){
+//     // console.log('clicked')
+//     if(questionInp.value=="") questionInp.value="7"
+//     else questionInp.value+="7"
+// }
+// btn8.onclick =function(){
+//     // console.log('clicked')
+//     if(questionInp.value=="") questionInp.value="8"
+//     else questionInp.value+="8"
+// }
+// btn9.onclick =function(){
+//     // console.log('clicked')
+//     if(questionInp.value=="") questionInp.value="9"
+//     else questionInp.value+="9"
+// }
 
-btnBack.onclick=()=>{
+function back(){
     let length=questionInp.value.length
     questionInp.value=questionInp.value.slice(0,length-1)
     answerInp.value=""
 }
 
-btnClear.onclick=()=>{
+function Clear(){
     questionInp.value=""
     answerInp.value=""
 }
 
-btnAns.onclick=function(){
+function Ans(){
     let ans=eval(questionInp.value)
     if(ans==undefined) answerInp.value=""
     else answerInp.value=ans
 }
 
+document.getElementById("calculator").addEventListener("click",(e)=>{
+    console.log(e)
+    console.log(e.path[0].textContent)
+    if(e.path[0].textContent=="clear"){
+    //    console.log("clicked clear from addeventlistenrer")
+        Clear()
+    }
+    else if(e.path[0].textContent=="Ans"){
+        // console.log("clicked ans from addeventlistenrer")
+         Ans()
+    }
+    else if(e.path[0].textContent=="back"){
+        back()
+    }
+    else{
+        questionInp.value+=e.path[0].innerHTML
+    }
+})
+
 window.addEventListener("keydown", function(e) {
+    console.log(e)
     if (e.keyCode == 13)  {
         let ans=eval(questionInp.value)
         if(ans==undefined) answerInp.value=""
@@ -98,35 +120,37 @@ window.addEventListener("keydown", function(e) {
         }
         answerInp.value=""
     }
-    if(e.keyCode>=65 && e.keyCode<=90){
-        questionInp.value=null
-    }
-    if(e.keyCode>=97 && e.keyCode<=105){
-        questionInp+=e.value
+    if(e.key=="+" || e.key=="-" || e.key=="*" || e.key=="/"|| e.key=="%" ||e.keyCode>=96 && e.keyCode<=105){
+        console.log(e.key+"\n")
+        questionInp.value+=e.key
     }
 })
 
-btnModulo.onclick=()=>{
-    // if(questionInp.value=="") questionInp.value=""
-     questionInp.value+="%"
-}
+// btnModulo.onclick=()=>{
+//     if(questionInp.value=="") questionInp.value=""
+//      questionInp.value+="%"
+// }
 
-btnMinus.onclick=()=>{
-    // if(questionInp.value=="") questionInp.value=""
-     questionInp.value+="-"
-}
+// btnMinus.onclick=()=>{
+//     if(questionInp.value=="") questionInp.value=""
+//      questionInp.value+="-"
+// }
 
-btnPlus.onclick=()=>{
-    // if(questionInp.value=="") questionInp.value=""
-     questionInp.value+="+"
-}
+// btnPlus.onclick=()=>{
+//     if(questionInp.value=="") questionInp.value=""
+//      questionInp.value+="+"
+// }
 
-btnDivide.onclick= ()=>{
-    // if(questionInp.value="")questionInp.value=""
-     questionInp.value="/"
-}
+// btnDivide.onclick= ()=>{
+//     if(questionInp.value="")questionInp.value=""
+//      questionInp.value+="/"
+// }
 
-btnMultiply.onclick=function(){
-    if(questionInp.value="") questionInp.value=""
-    else questionInp.value="*"
-}
+// btnMultiply.onclick=function(){
+//     if(questionInp.value="") questionInp.value=""
+//     questionInp.value+="*"
+// }
+
+
+
+
