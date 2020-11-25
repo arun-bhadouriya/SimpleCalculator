@@ -102,7 +102,26 @@ document.getElementById("calculator").addEventListener("click",(e)=>{
         back()
     }
     else{
-        questionInp.value+=e.path[0].innerHTML
+        questionInp.value+=e.path[0].inner
+    }
+})
+
+document.getElementById("calculator").addEventListener("ontouchstart",(e)=>{
+    console.log(e)
+    console.log(e.path[0].textContent)
+    if(e.path[0].textContent=="clear"){
+    //    console.log("clicked clear from addeventlistenrer")
+        Clear()
+    }
+    else if(e.path[0].textContent=="Ans"){
+        // console.log("clicked ans from addeventlistenrer")
+         Ans()
+    }
+    else if(e.path[0].textContent=="back"){
+        back()
+    }
+    else{
+        questionInp.value+=e.path[0].inner
     }
 })
 
